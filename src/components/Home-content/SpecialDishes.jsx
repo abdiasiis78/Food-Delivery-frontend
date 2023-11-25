@@ -96,7 +96,7 @@ function SpecialDishes() {
         <button onClick={() => slider?.current?.slickNext()} className="btn p-2 rounded-full ml-5 bg-green"><FaAngleRight className="w-8 h-8 p-2 "/></button>
       </div>
 
-      <Slider ref={slider} {...settings} className="overflow-hidden mt-10 space-x-5 items-center">
+      <Slider ref={slider} {...settings} className="overflow-hidden mt-10 space-x-5 items-center mx-auto">
         {recipes.map((item, i) => (
           <Cards key={i} item={item} />
         ))}

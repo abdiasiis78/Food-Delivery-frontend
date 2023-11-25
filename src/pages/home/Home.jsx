@@ -3,6 +3,7 @@ import Banner from '../../components/Home-content/Banner'
 import Categories from '../../components/Home-content/Categories'
 import SpecialDishes from '../../components/Home-content/SpecialDishes'
 import Testimonials from '../../components/Home-content/Testimonials'
+import OurServices from '../../components/Home-content/OurServices'
 
 function Home() {
   return (
@@ -11,6 +12,7 @@ function Home() {
       <Categories/>
       <SpecialDishes/>
       <Testimonials/>
+      <OurServices/>
     </div>
   )
 }

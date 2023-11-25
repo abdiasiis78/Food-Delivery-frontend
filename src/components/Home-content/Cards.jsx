@@ -10,7 +10,7 @@ function Cards({ item }) {
     }
 
     return (
-        <div className="card w-96 bg-base-100 shadow-xl relative">
+        <div  className="card w-96 bg-base-100 shadow-xl relative">
             <div className={`absolute rating gap-1 right-2 top-2 p-4 heartStar bg-green ${isHeartFiltered ? "text-red" : "text-white"}`}>
                 <FaHeart className="h-5 w-5 cursor-pointer" onClick={heartHandle} />
             </div>
