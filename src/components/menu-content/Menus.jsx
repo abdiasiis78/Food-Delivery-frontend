@@ -6,6 +6,8 @@ function Menus() {
   const [filtaredItmes, setFiltaredItmes] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [sortOption, setSortOption] = useState("default");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(6);
 
   //  loding data
   useEffect(() => {
@@ -35,12 +37,14 @@ function Menus() {
 
     setFiltaredItmes(filtered);
     setSelectedCategory(category);
+    setCurrentPage(1);
   };
 
   //   show all data
   const showAll = () => {
     setFiltaredItmes(menu);
     setSelectedCategory("all");
+    setCurrentPage(1);
   };
 
   // sorting based on A-Z , Z-A, Low-high pricing
@@ -69,7 +73,14 @@ function Menus() {
     }
 
     setFiltaredItmes(sortedItems);
+    setCurrentPage(1);
   };
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItme = indexOfLastItem - itemsPerPage;
+
+  const curentItems = filtaredItmes.slice(indexOfFirstItme, indexOfLastItem);
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div>
@@ -165,10 +176,28 @@ function Menus() {
 
         {/* product card */}
         <div className="grid md:grid-cols-3 sm:grid-cols-2 sm:gap-4 grid-cols-1 mx-auto gap-4 p-3">
-          {filtaredItmes.map((item) => (
+          {curentItems.map((item) => (
             <Cards key={item._id} item={item} />
           ))}
         </div>
+      </div>
+
+      {/* pagination section */}
+
+      <div className="flex justify-center my-8 gap-4">
+        {Array.from({
+          length: Math.ceil(filtaredItmes.length / itemsPerPage),
+        }).map((_, index) => (
+          <button
+            key={index + 1}
+            onClick={() => paginate(index + 1)}
+            className={`px-3 py-1 rounded-full ${
+              currentPage === index + 1 ? "bg-green text-white" : "bg-gray-200"
+            }`}
+          >
+            {index + 1}
+          </button>
+        ))}
       </div>
     </div>
   );
