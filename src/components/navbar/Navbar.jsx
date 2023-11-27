@@ -34,11 +34,14 @@ function Navbar() {
         <details>
           <summary>Menu</summary>
           <ul className="p-2">
-            <li>
-              <a>Somali food</a>
+            <li >
+              <a href="/menu">All</a>
             </li>
             <li>
-              <a>international food</a>
+              <a>salad</a>
+            </li>
+            <li>
+              <a>piza</a>
             </li>
           </ul>
         </details>
