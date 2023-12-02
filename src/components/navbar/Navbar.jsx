@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { BiPhoneCall } from "react-icons/bi";
+import { FaUser } from "react-icons/fa";
+import Model from "../login/Model";
 
 
 function Navbar() {
@@ -151,9 +152,12 @@ function Navbar() {
           </label>
 
           {/* btn */}
-          <a className="btn bg-green rounded-full px-6 text-white flex items-center gap-2">
-            <BiPhoneCall /> Contact
-          </a>
+          <button  onClick={()=>document.getElementById('my_modal_5').showModal() }
+          className="btn bg-green rounded-full px-6 text-white flex items-center gap-2">
+           <FaUser/>  Login
+          </button>
+
+          <Model/>
         </div>
       </div>
     </header>
